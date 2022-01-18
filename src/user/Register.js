@@ -64,7 +64,7 @@ function Register() {
 
   const signUpForm = () => {
     return (
-      <div className="row" style={{marginBottom: "5px"}}>
+      <div className="row" style={{marginBottom: "160px"}}>
         <div className="col-md-6 offset-sm-4 text-left">
           {error && handleError()}
           {success && handleSuccess()}

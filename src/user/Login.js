@@ -30,11 +30,11 @@ function Login() {
     e.preventDefault();
     setValues({...values, loading: true});
     loginUser({email, password}).then((data) => {
-      if (!data.success) {
+      if (!data?.success) {
         console.log("errrrr");
         setValues({
           ...values,
-          error: "fill fields properly",
+          error: data.message,
           success: false,
           loading: false,
           redirect: false,
@@ -65,21 +65,18 @@ function Login() {
   };
 
   const redirectUser = () => {
-    if (redirect) {
-      return <Redirect to="/" />;
-    }
-    if (isAuthenticate()) {
+    if (redirect || isAuthenticate()) {
       return <Redirect to="/" />;
     }
   };
 
   const loginForm = () => {
     return (
-      <div className="row" style={{marginBottom: "67px"}}>
+      <div className="row" style={{marginBottom: "257px"}}>
         <div className="col-md-6 offset-sm-4 text-left">
           {success && handleSuccess()}
           {error && handleError()}
-          {redirect && redirectUser()}
+          {redirectUser()}
           <form>
             <div className="form-group my-3">
               <label>Email</label>

@@ -49,3 +49,9 @@ export const isAuthenticate = () => {
   }
   return false;
 };
+
+export const orderDetails = (userId) => {
+  return fetch(`${API}/order/${userId}`, {method: "GET"})
+    .then((response) => response.json())
+    .catch((err) => console.log(err));
+};

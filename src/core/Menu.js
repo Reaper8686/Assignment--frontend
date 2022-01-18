@@ -20,13 +20,22 @@ function Menu({history}) {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link fw-bold" href="#">
+              <Link className="nav-link fw-bold" to="/cart">
                 Cart
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               {isAuthenticate() && (
-                <Link className="nav-link fw-bold">Profile</Link>
+                <Link
+                  className={
+                    history.location.pathname === "/profile"
+                      ? "nav-link active fw-bold"
+                      : "nav-link fw-bold"
+                  }
+                  to="/profile"
+                >
+                  Profile
+                </Link>
               )}
             </li>
             <li className="nav-item">
@@ -60,6 +69,7 @@ function Menu({history}) {
             <li className="nav-item float-end">
               {isAuthenticate() && (
                 <Link
+                  to=""
                   className="nav-link fw-bold text-danger"
                   onClick={() => {
                     signout(() => {

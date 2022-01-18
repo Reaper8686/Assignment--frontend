@@ -16,7 +16,7 @@ function Base({
         </div>
         <div className={className}>{children}</div>
       </div>
-      <footer className="footer unicolor fixed-bottom">
+      <footer className="footer unicolor bottom">
         <div className="container-fluid text-center py-3">
           <span>Copyright © 2022</span>
 
